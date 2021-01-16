@@ -134,7 +134,7 @@ export default {
   name: "todolist-list",
   data() {
     return {
-      todolists: [],
+      todolists: [{items: []}],
       currentTodolist: null,
       currentListIndex: 0,
       currentItemIndex: 0,
