@@ -34,10 +34,12 @@
       </div>
 
       <div class="float-right">
-        <button @click="hideModal" class="btn btn-danger mr-4 px-3">
+        <button @click="hideModal" class="btn btn-secondary mr-4 px-3">
           Cancel
         </button>
-        <button @click="saveTodoItem" class="btn btn-success px-4">Add</button>
+        <button @click="saveTodoItem" class="btn btn-success px-4">
+          Add
+        </button>
       </div>
     </div>
   </modal>

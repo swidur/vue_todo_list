@@ -1,12 +1,19 @@
 <template>
   <modal name="modal-delete" @before-open="beforeOpen">
     <div>
-      <h6 class="mx-3 mt-3 small font-weight-bold">Delete</h6>
+      <h6 class="mx-3 mt-3 small font-weight-bold">
+        <span v-if="listOrItem() == 'list'">
+          Delete list
+        </span>
+        <span v-else>
+          Delete item
+        </span>
+      </h6>
     </div>
     <div class="submit-form">
       <div v-if="listOrItem() == 'list'" class="mx-3 mt-3">
         <p>
-          Are you sure you want to delete Todo and all tasks?<br /><strong>{{
+          Are you sure you want to delete the list and all its tasks?<br /><strong>{{
             object.title
           }}</strong>
           <br />This action is permament!
@@ -23,10 +30,12 @@
 
 
       <div class="float-right">
-        <button @click="hideModal()" class="btn btn-success mr-4 px-3">
+        <button @click="hideModal()" class="btn btn-secondary mr-4 px-3">
           Cancel
         </button>
-        <button @click="deleteObject()" class="btn btn-danger px-4">Delete</button>
+        <button @click="deleteObject()" class="btn btn-danger px-4">
+          Delete
+        </button>
       </div>
     </div>
   </modal>

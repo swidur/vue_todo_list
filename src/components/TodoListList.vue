@@ -2,7 +2,7 @@
   <div class="list row">
     <div class="col-md-4">
       <h4>
-        Todos
+        Lists
         <font-awesome-icon
           icon="plus"
           class="text-success"
@@ -63,7 +63,7 @@
           v-for="(todoItem, itemIndex) in todolists[currentListIndex].items"
           :key="itemIndex"
           class="list-group-item"
-          :class="{ 'bg-success strike': todoItem.done_at != null }"
+          :class="{ 'bg-light text-muted font-weight-light strike': todoItem.done_at != null }"
         >
           <div class="container">
             <div class="row">

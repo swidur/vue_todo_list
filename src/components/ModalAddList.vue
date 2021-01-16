@@ -1,14 +1,14 @@
 <template>
   <modal name="modal-add-list" @before-open="beforeOpen">
     <div>
-      <h6 class="mx-3 mt-3 small font-weight-bold">Add new Todo</h6>
+      <h6 class="mx-3 mt-3 small font-weight-bold">Add new list</h6>
     </div>
     <div class="submit-form">
       <div class="form-group">
         <div class="container">
           <div class="row">
             <div class="col-4 text-left">
-              <label for="title">Todo title</label>
+              <label for="title">List title</label>
             </div>
             <div class="col-8 text-right">
               <div v-if="response == 'Success'">
@@ -33,10 +33,12 @@
       </div>
 
       <div class="float-right">
-        <button @click="hideModal" class="btn btn-danger mr-4 px-3">
+        <button @click="hideModal" class="btn btn-secondary mr-4 px-3">
           Cancel
         </button>
-        <button @click="saveTodoList" class="btn btn-success px-4">Add</button>
+        <button @click="saveTodoList" class="btn btn-success px-4">
+          Add
+        </button>
       </div>
     </div>
   </modal>
