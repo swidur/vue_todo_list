@@ -70,32 +70,26 @@ export default {
       TodoListDataService.get(id)
         .then(response => {
           this.currentTodoList = response.data;
-          console.log(response.data);
         })
         .catch(e => {
-          console.log(e);
         });
     },
 
     updateTutorial() {
       TodoListDataService.update(this.currentTodoList.id, this.currentTodoList)
         .then(response => {
-          console.log(response.data);
           this.message = 'The tutorial was updated successfully!';
         })
         .catch(e => {
-          console.log(e);
         });
     },
 
     deleteTutorial() {
       TodoListDataService.delete(this.currentTodoList.id)
         .then(response => {
-          console.log(response.data);
           this.$router.push({ name: "tutorials" });
         })
         .catch(e => {
-          console.log(e);
         });
     }
   },

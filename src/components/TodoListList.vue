@@ -175,10 +175,8 @@ export default {
       TodoListDataService.getAll()
         .then((response) => {
           this.todolists = response.data;
-          console.log(response.data);
         })
         .catch((e) => {
-          console.log(e);
         });
     },
 
@@ -205,12 +203,9 @@ export default {
     },
 
     removeItem(todoItem) {
-      console.log(todoItem.id);
-      console.log(this.todolists[this.currentListIndex].items);
       this.todolists[this.currentListIndex].items = this.todolists[
         this.currentListIndex
       ].items.filter((item) => item.id !== todoItem.id);
-      console.log(this.todolists[this.currentListIndex].items);
       TodoItemDataService.delete(todoItem.id);
     },
   },
@@ -229,7 +224,6 @@ export default {
   created() {
     eventBus.$on("refreshTodos", () => {
       this.retrieveTodoLists();
-      console.log("refreshTodos");
     });
   },
 };

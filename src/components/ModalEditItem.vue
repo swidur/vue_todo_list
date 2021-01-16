@@ -69,7 +69,6 @@ export default {
     saveTodoItem() {
       eventBus.$emit("refreshTodos");
 
-      console.log(this.todoItem.id);
       if (!this.todoItem.name || this.todoItem.name.trim() === '' ) {
         this.response = "Empty string";
         return 0;
@@ -86,7 +85,6 @@ export default {
         })
         .catch((e) => {
           if (e.response.status == 400) {
-            console.log("400");
             this.response = "Bad request";
           }
         });

@@ -58,11 +58,9 @@ export default {
       TodoListDataService.create(data)
         .then(response => {
           this.todolist.id = response.data.id;
-          console.log(response.data);
           this.submitted = true;
         })
         .catch(e => {
-          console.log(e);
         });
     },
     

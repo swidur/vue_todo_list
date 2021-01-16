@@ -70,7 +70,6 @@ export default {
     },
 
     deleteObject(){
-      console.log(this.listOrItem());
       if (this.listOrItem() == 'list'){
         this.deleteTodoList();
       } 
@@ -81,15 +80,12 @@ export default {
     },
 
     deleteTodoList() {
-      console.log(this.object.title);
-
       TodoListDataService.delete(this.object.id)
         .then((response) => {
           this.hideModal();
         })
         .catch((e) => {
           if (e.response.status == 400) {
-            console.log("400");
             this.response = "Bad request";
           }
         });
@@ -98,15 +94,12 @@ export default {
     },
 
     deleteTodoItem() {
-      console.log(this.object.name);
-
       TodoItemDataService.delete(this.object.id)
         .then((response) => {
           this.hideModal();
         })
         .catch((e) => {
           if (e.response.status == 400) {
-            console.log("400");
             this.response = "Bad request";
           }
         });

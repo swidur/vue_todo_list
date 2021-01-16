@@ -67,7 +67,6 @@ export default {
     },
 
     saveTodoItem() {
-      console.log(this.todoItem.name);
       if (!this.todoItem.name || this.todoItem.name.trim() === '' ) {
         this.response = "Empty string";
         return 0;
@@ -85,7 +84,6 @@ export default {
         })
         .catch((e) => {
           if (e.response.status == 400) {
-            console.log("400");
             this.response = "Bad request";
           }
         });
