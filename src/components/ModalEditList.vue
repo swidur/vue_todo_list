@@ -15,7 +15,7 @@
                 <div class="text-success">Saved!</div>
               </div>
               <div v-if="response == 'Empty string'">
-                <div class="text-danger">You need to supply the title</div>
+                <div class="text-danger">You need to provide the title</div>
               </div>
               <div v-if="response == 'Bad request'">
                 <div class="text-danger">Bad request - possible duplicate</div>
