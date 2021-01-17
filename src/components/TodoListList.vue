@@ -9,7 +9,7 @@
           @click="showModalAddList()"
         />
       </h4>
-      <ul class="list-group">
+      <ul class="list-group" v-if="todolists.length > 0">
         <li
           class="list-group-item"
           :class="{ active: index == currentListIndex }"
@@ -54,11 +54,11 @@
         <font-awesome-icon
           icon="plus"
           class="text-success"
-          @click="showModalAddItem(todolists[currentListIndex].id)"
+          @click="showModalAddItem(todolists.length > 0 ? todolists[currentListIndex].id : null)"
         />
       </h4>
 
-      <ul class="list-group">
+      <ul class="list-group" v-if="todolists.length > 0">
         <li
           v-for="(todoItem, itemIndex) in todolists[currentListIndex].items"
           :key="itemIndex"
@@ -134,7 +134,7 @@ export default {
   name: "todolist-list",
   data() {
     return {
-      todolists: [{items: []}],
+      todolists: [],
       currentTodolist: null,
       currentListIndex: 0,
       currentItemIndex: 0,
@@ -144,6 +144,9 @@ export default {
   },
   methods: {
     showModalAddItem(todoListId) {
+      if (todoListId === null){
+        return;
+      }
       this.$modal.show("modal-add-item", { listId: todoListId });
     },
 
