@@ -89,8 +89,7 @@ export default {
             this.response = "Bad request";
           }
         });
-
-      eventBus.$emit("refreshTodos");
+      eventBus.$emit("refreshTodosAfterListDelete");
     },
 
     deleteTodoItem() {
@@ -103,13 +102,11 @@ export default {
             this.response = "Bad request";
           }
         });
-
       eventBus.$emit("refreshTodos");
     },
 
     hideModal() {
       this.$modal.hide("modal-delete");
-      eventBus.$emit("refreshTodos");
     },
     clearForm() {
       this.object = {};

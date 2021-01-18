@@ -82,8 +82,6 @@ export default {
             this.response = "Bad request";
           }
         });
-
-      eventBus.$emit("refreshTodos");
     },
 
     hideModal() {

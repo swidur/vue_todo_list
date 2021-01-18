@@ -172,8 +172,6 @@ export default {
       }); //pass shalow copy of the object to m
     },
 
-   
-
     retrieveTodoLists() {
       TodoListDataService.getAll()
         .then((response) => {
@@ -181,6 +179,13 @@ export default {
         })
         .catch((e) => {
         });
+    },
+
+    retrieveTodoListsEventWrapper(resetListIndex){
+      if (resetListIndex){
+        this.currentListIndex = 0;
+      }
+      this.retrieveTodoLists();
     },
 
     setActiveTodoList(todolist, index) {
@@ -210,7 +215,7 @@ export default {
         this.currentListIndex
       ].items.filter((item) => item.id !== todoItem.id);
       TodoItemDataService.delete(todoItem.id);
-    },
+    }
   },
 
   components: {
@@ -226,7 +231,10 @@ export default {
   },
   created() {
     eventBus.$on("refreshTodos", () => {
-      this.retrieveTodoLists();
+      this.retrieveTodoListsEventWrapper();
+    });
+    eventBus.$on("refreshTodosAfterListDelete", () => {
+      this.retrieveTodoListsEventWrapper(true);
     });
   },
 };

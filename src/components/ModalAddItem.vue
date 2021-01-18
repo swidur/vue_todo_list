@@ -87,12 +87,11 @@ export default {
             this.response = "Bad request";
           }
         });
-
-      eventBus.$emit("refreshTodos");
     },
 
     hideModal() {
       this.$modal.hide("modal-add-item");
+      eventBus.$emit("refreshTodos");
     },
 
     clearForm() {

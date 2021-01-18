@@ -67,8 +67,6 @@ export default {
     },
 
     saveTodoItem() {
-      eventBus.$emit("refreshTodos");
-
       if (!this.todoItem.name || this.todoItem.name.trim() === '' ) {
         this.response = "Empty string";
         return 0;
@@ -88,12 +86,11 @@ export default {
             this.response = "Bad request";
           }
         });
-
-      eventBus.$emit("refreshTodos");
     },
 
     hideModal() {
       this.$modal.hide("modal-edit-item");
+      eventBus.$emit("refreshTodos");
     },
 
     clearForm() {
