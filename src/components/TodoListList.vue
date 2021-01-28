@@ -185,7 +185,7 @@ export default {
       if (resetListIndex){
         this.currentListIndex = 0;
       }
-      this.retrieveTodoLists();
+      setTimeout(() => this.retrieveTodoLists(), 10);
     },
 
     setActiveTodoList(todolist, index) {
